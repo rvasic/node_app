@@ -8,26 +8,26 @@ pipeline{
 	stages {
 		stage('Build') {
 			steps {
-				sh 'docker build -t rvasic/nodeapp:latest .'
+				bat 'docker build -t rvasic/nodeapp:latest .'
 			}
 		}
 
 		stage('Login') {
 			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
 
 		stage('Push') {
 			steps {
-				sh 'docker push rvasic/nodeapp:latest'
+				bat 'docker push rvasic/nodeapp:latest'
 			}
 		}
 	}
 
 	post {
 		always {
-			sh 'docker logout'
+			bat 'docker logout'
 		}
 	}
 
