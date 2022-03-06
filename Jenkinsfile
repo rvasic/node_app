@@ -1,10 +1,6 @@
 pipeline{
 	agent {label "Jenkins Agent"}
 
-	environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub-credentials')
-	}
-
 	stages {
 		stage('Build') {
 			steps {
