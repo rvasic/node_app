@@ -1,11 +1,20 @@
-const express = require('express');
-const app = express();
+// Ucitavanje HTTP modula
+const http = require("http");
+
+const hostname = "127.0.0.1";
 const port = 3000;
 
-app.get('/', function(req, res) {
-  res.send('ZdraVO svete!')
+// Kreiranje HTTP servera
+const server = http.createServer(function(req, res) {
+
+   // Postavljanje odgovora HTTP zaglavlja da sadrzi HTTP status i tip sadrzaja 
+   res.writeHead(200, {'Content-Type': 'text/plain'});
+
+   // Slanje odgovora u body sekciji
+   res.end('Zdravo svete!\n');
 });
 
-app.listen(port, function() {
-  console.log(`Aplikacija pokrenuta na portu ${port}!`)
-});
+// Ispisivanje loga u momentu pokretanja servera
+server.listen(port, hostname, function() {
+   console.log(`Server pokrenut na http://${hostname}:${port}/`);
+})
