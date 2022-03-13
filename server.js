@@ -11,7 +11,7 @@ const server = http.createServer(function(req, res) {
    res.writeHead(200, {'Content-Type': 'text/plain'});
 
    // Slanje odgovora u body sekciji
-   res.end('Zdravo svete!\n');
+   res.send('Zdravo svete!\n');
 });
 
 // Ispisivanje loga u momentu pokretanja servera
