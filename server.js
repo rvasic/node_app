@@ -4,9 +4,9 @@ const app = express();
 //Definisanje porta
 const port=3000;
 
-app.get("/", (req, res) => {
-  res.send('Zdravo svete!')
-})
+app.get("/", function (req, res) {
+    res.send('Zdravo svete!');
+  })
 
 //Pokretanje aplikacije
 app.listen(port, () => {
