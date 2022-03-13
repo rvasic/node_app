@@ -1,25 +1,14 @@
 const express = require("express");
-
 const app = express();
 
-//define port
+//Definisanje porta
 const port=3000;
 
 app.get("/", (req, res) => {
-
-res.json({message:'Root page'})
-
+  res.send('Zdravo svete!')
 })
 
-//get example
-
-app.get("/get-data", (req, res) => {
-
-res.json({message:'Get JSON Example'})
-
-})
-
-//run the application
+//Pokretanje aplikacije
 app.listen(port, () => {
-  console.log(`running at port ${port}`);
+  console.log(`Primer aplikacije koja slusa na portu ${port}`);
 });
